@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Nav from './Nav.js';
 
 class App extends Component {
   state = {
@@ -25,7 +26,10 @@ class App extends Component {
   render(){
     const data = this.state.data;
     return (
-      <div>
+      <div className="app">
+        <div className="nav">
+          <Nav />
+        </div>
         <ul>
         {data.length < 1
           ? 'NO DB ENTRIES YET'

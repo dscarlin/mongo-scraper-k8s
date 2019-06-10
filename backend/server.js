@@ -71,15 +71,22 @@ router.get('/scrape', (req, res) => {
             title: title
         });
         });
+        let bulk = Data.collection.initializeOrderedBulkOp();
         
-        Data.create(results,(...response) => {
-            let err = response.slice(0,1)
-            let result = response.slice(1)
+
+        for (let i=0; i< results.length; i++) {
+            bulk.find({title: results[i].title}).upsert().updateOne({title: results[i].title})
+        }
+        bulk.execute((err, result) => {
+            console.log(err)
+            console.log(result)
             if(err)
                 res.json(err)
             else
                 res.json(result)
-        });
+        })
+        
+        
         
     });
 
