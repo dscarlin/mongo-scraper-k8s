@@ -1,0 +1,28 @@
+.bg {
+    color:  rgb(204, 83, 83);
+    background: rgb(248, 238, 249);
+    position: fixed;
+    width: 100%;
+    z-index: 1
+}
+.brand {
+    color:  rgb(204, 83, 83);
+    font-size: 1.5rem;
+    padding-top: 0.25rem;
+}
+.brand:hover {
+    color: inherit;
+}
+/* Ripple effect */
+.ripple {
+    background-position: center;
+    transition: background 0.8s;
+}
+.ripple:hover {
+    background: green radial-gradient(circle, transparent 1%, rgba(255, 255, 255, 0.141) 1%) center/15000%;
+}
+.ripple:active {
+    background-color: green;
+    background-size: 100%;
+    transition: background 0s;
+}

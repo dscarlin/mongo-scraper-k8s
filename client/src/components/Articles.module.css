@@ -1,0 +1,25 @@
+.articleImage {
+    width: 100%;
+    /* margin: auto; */
+
+}
+
+.article {
+    background: rgb(248, 238, 249);
+    padding: 1em 0;
+    margin: 1em 0;
+    box-shadow: 5px 5px 10px 2px 
+}
+.article Button {
+    min-width: fit-content;
+    width: calc(100% - 2em);
+    margin: 1em;
+}
+.noArticle {
+    color: rgb(204, 83, 83);
+    background: rgb(248, 238, 249);
+    padding: 1em 0;
+    margin: 1em auto;
+    box-shadow: 2px 2px 10px 2px black;
+    text-align: center; 
+}

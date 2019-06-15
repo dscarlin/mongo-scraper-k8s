@@ -1,0 +1,12 @@
+.app {
+    background-image: url('https://jooinn.com/images/concrete-1.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    min-height: 192vh;
+}
+.app Button:focus, .app Button:not(:disabled):not(.disabled):active:focus {
+    box-shadow: unset;
+
+}
