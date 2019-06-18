@@ -8,7 +8,7 @@
     background: rgb(248, 238, 249);
     padding: 1em 0;
     margin: 1em 0;
-    box-shadow: 5px 5px 10px 2px 
+    box-shadow: 5px 5px 10px 2px black
 }
 .article Button {
     min-width: fit-content;
@@ -22,4 +22,7 @@
     margin: 1em auto;
     box-shadow: 2px 2px 10px 2px black;
     text-align: center; 
+}
+.article, .article a {
+    color: rgb(204, 83, 83);
 }

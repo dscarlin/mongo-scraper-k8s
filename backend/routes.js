@@ -27,11 +27,18 @@ module.exports = (cheerio, axios, db, router) => {
   router.put('/removeArticle', (req, res) => {
     let { _id } = req.body
     db.Article.findOne({ _id },
-      (err, doc) => {
-        console.log(doc)
-        doc.remove()
+      (err, article) => {
         if (err) return res.json({ success: false, error: err })
-        return res.json({ success: true, data: doc })
+        console.log(article)
+        article.remove()
+        let deleteArray = article.notes.map(note => {
+          return { deleteOne: { 'filter': { _id: note._id } } }
+        })
+        db.Note.bulkWrite(deleteArray, (err, result) => {
+          if (err) return res.json({ success: false, error: err })
+          console.log(result)
+          return res.json({ success: true, data: { result, article } })
+        })
       });
   })
   router.put('/addNote', (req, res) => {
@@ -73,11 +80,14 @@ module.exports = (cheerio, axios, db, router) => {
   })
   router.delete('/clearArticles', (req, res) => {
     db.Article.find(
-      (err, docs) => {
-        console.log(docs)
-        docs.forEach(doc => doc.remove());
+      (err, articles) => {
         if (err) return res.json({ success: false, error: err })
-        return res.json({ success: true, data: docs })
+        articles.forEach(article => article.remove());
+        db.Note.find((err, notes) => {
+          if (err) return res.json({ success: false, error: err })
+          notes.forEach(note => note.remove());
+          return res.json({ success: true, data: articles.push(notes) })
+        });
       });
   })
   router.get('/scrape', (req, res) => {
