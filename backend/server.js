@@ -7,7 +7,7 @@ const logger = require('morgan')
 const db = require('./models')
 const cheerio = require('cheerio')
 const axios = require('axios')
-const API_PORT = 3001
+const API_PORT = process.env.PORT || 3001;
 const app = express()
 const router = express.Router()
 
