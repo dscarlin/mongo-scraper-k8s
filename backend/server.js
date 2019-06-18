@@ -22,6 +22,8 @@ let dbConn = mongoose.connection
 dbConn.once('open', () => console.log('MongoDB connection open'))
 dbConn.on('error', console.error.bind(console, 'MongoDB connection error:'))
 
+// route for serving front end
+app.use(express.static("../client/build"));
 // (optional) only made for logging and
 // bodyParser, parses the request body to be a readable json format
 app.use(bodyParser.urlencoded({ extended: false }))
