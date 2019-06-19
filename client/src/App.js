@@ -4,9 +4,9 @@ import {
   BrowserRouter as Router 
 } from 'react-router-dom'
 import axios from 'axios';
-import AppNavbar from './components/AppNavbar.js';
-import Articles from './components/Articles.js';
-import Banner from './components/Banner.js'
+import AppNavbar from './components/AppNavbar';
+import Articles from './components/Articles';
+import Banner from './components/Banner'
 import style from './App.module.css'
 import scrollToComponent from 'react-scroll-to-component'
 class App extends Component {
